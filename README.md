@@ -15,3 +15,18 @@ I don't like the delay after pressing `y` for doing regular yanks. Therefore, I'
 	vmap <silent> DM  :<C-U>call ForAllMatches('delete', {'visual':1, 'inverse':1})<CR>
 	vmap <silent> YM  :<C-U>call ForAllMatches('yank',   {'visual':1})<CR>
 	vmap <silent> YI  :<C-U>call ForAllMatches('yank',   {'visual':1, 'inverse':1})<CR>
+
+### Configuration Options
+
+#### Override the Destination Default Destination Register
+
+Default Setting = `'"'`
+
+It is possible that a user may want to use a different register by default for
+this plugin to save information to.
+
+To configure the destination register to the `+` register for example:
+
+```vimscript
+let g:YankMatches#ClipboardRegister='+'
+```
