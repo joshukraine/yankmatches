@@ -24,16 +24,17 @@ set cpo&vim
 
 "====[ Interface ]====================================================
 "
-" Change these if you want different commands for the specified actions...
+" Example mappings
 "
-nmap <silent> dm  :     call ForAllMatches('delete', {})<CR>
-nmap <silent> DM  :     call ForAllMatches('delete', {'inverse':1})<CR>
-nmap <silent> YM  :     call ForAllMatches('yank',   {})<CR>
-nmap <silent> YI  :     call ForAllMatches('yank',   {'inverse':1})<CR>
-vmap <silent> dm  :<C-U>call ForAllMatches('delete', {'visual':1})<CR>
-vmap <silent> DM  :<C-U>call ForAllMatches('delete', {'visual':1, 'inverse':1})<CR>
-vmap <silent> YM  :<C-U>call ForAllMatches('yank',   {'visual':1})<CR>
-vmap <silent> YI  :<C-U>call ForAllMatches('yank',   {'visual':1, 'inverse':1})<CR>
+" I will set what I want explicitly in my vimrc
+" nmap <silent> dm  :     call ForAllMatches('delete', {})<CR>
+" nmap <silent> DM  :     call ForAllMatches('delete', {'inverse':1})<CR>
+" nmap <silent> YM  :     call ForAllMatches('yank',   {})<CR>
+" nmap <silent> YI  :     call ForAllMatches('yank',   {'inverse':1})<CR>
+" vmap <silent> dm  :<C-U>call ForAllMatches('delete', {'visual':1})<CR>
+" vmap <silent> DM  :<C-U>call ForAllMatches('delete', {'visual':1, 'inverse':1})<CR>
+" vmap <silent> YM  :<C-U>call ForAllMatches('yank',   {'visual':1})<CR>
+" vmap <silent> YI  :<C-U>call ForAllMatches('yank',   {'visual':1, 'inverse':1})<CR>
 
 function! ForAllMatches (command, options)
     " Remember where we parked...
