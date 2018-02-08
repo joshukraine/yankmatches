@@ -83,13 +83,19 @@ function! ForAllMatches (command, options)
     " Make yanked lines available for putting...
     " First however, check if the user has configured the option to change the
     " register that the information is yanked or deleted to. If no such
-    " configuration exists, then default to the '"' register.
-    if exists('g:YankMatches#ClipboardRegister')
-        let l:command = ':let @' . g:YankMatches#ClipboardRegister . ' = yanked'
-        execute 'normal! ' . l:command . "\<cr>"
-    else
-        let @" = l:yanked
+    " configuration exists, then check the clipboard setting.
+    if !exists('g:YankMatches#ClipboardRegister')
+        let l:clipboard_flags = split(&clipboard, ',')
+        if index(l:clipboard_flags, 'unnamedplus') >= 0
+            let g:YankMatches#ClipboardRegister='+'
+        elseif index(l:clipboard_flags, 'unnamed') >= 0
+            let g:YankMatches#ClipboardRegister='*'
+        else
+            let g:YankMatches#ClipboardRegister='"'
+        endif
     endif
+    let l:command = ':let @' . g:YankMatches#ClipboardRegister . ' = yanked'
+    execute 'normal! ' . l:command . "\<cr>"
 
     " Return to original position...
     call setpos('.', l:orig_pos)

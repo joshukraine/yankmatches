@@ -20,13 +20,15 @@ I don't like the delay after pressing `y` for doing regular yanks. Therefore, I'
 
 #### Override the Destination Default Destination Register
 
-Default Setting = `'"'`
+By default, this plugin will save your matched text in the register defined by
+the `clipboard` setting, or if that isn't defined it will save in the `"`
+register.
 
-It is possible that a user may want to use a different register by default for
-this plugin to save information to.
+However, It is possible that a user may want to use a different register for
+this plugin.
 
-To configure the destination register to the `+` register for example:
+To configure the destination register to the `a` register for example:
 
 ```vimscript
-let g:YankMatches#ClipboardRegister='+'
+let g:YankMatches#ClipboardRegister='a'
 ```
