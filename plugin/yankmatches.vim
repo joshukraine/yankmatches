@@ -111,3 +111,6 @@ function! ForAllMatches (command, options)
         unsilent echo l:match_count . ' line' . (l:match_count > 1 ? 's' : '') . ' yanked'
     endif
 endfunction
+
+let &cpoptions = s:save_cpo
+unlet s:save_cpo
